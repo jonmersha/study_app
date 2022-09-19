@@ -6,6 +6,7 @@ class AppCircleButton extends StatelessWidget {
   final double width;
   final VoidCallback? onTap;
 
+
   const AppCircleButton(
       {Key? key,
       required this.child,
@@ -17,6 +18,7 @@ class AppCircleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+
       type:MaterialType.transparency,
       shape: const CircleBorder(),
       color: color,

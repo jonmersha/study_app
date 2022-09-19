@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:qaroo/config/themes/app_colors.dart';
 
+import '../../controllers/naviagation_controller.dart';
 import '../../widgets/app_circle_button.dart';
 
 class AppIntroductionScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class AppIntroductionScreen extends StatelessWidget {
           horizontal: Get.width * 0.2,
         ),
         alignment: Alignment.center,
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children:  [
           Icon(Icons.star, size: 65),
           SizedBox(
             height: 40,
@@ -40,9 +41,8 @@ class AppIntroductionScreen extends StatelessWidget {
           ),
           SizedBox(height: 40,),
           AppCircleButton(
-
-              onTap: null,
               color: Colors.transparent,
+              onTap:() => Get.toNamed("/home") ,
               child:  Icon(
                 Icons.arrow_forward,
                 size: 35,
@@ -54,4 +54,5 @@ class AppIntroductionScreen extends StatelessWidget {
       ),
     );
   }
+ // gotoHome() async => Get.off("/home");
 }
