@@ -4,7 +4,6 @@ import 'package:qaroo/controllers/question_paper_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     QuestionPaperController _questionPaperController = Get.find();
@@ -26,12 +25,11 @@ class HomeScreen extends StatelessWidget {
               );
             },
             separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(
+              return const SizedBox(
                 height: 10,
               );
             },
             itemCount:_questionPaperController.allPaperImages.length
-
          ),
       ),
     );

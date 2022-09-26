@@ -3,8 +3,6 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:qaroo/config/themes/app_colors.dart';
-
-import '../../controllers/naviagation_controller.dart';
 import '../../widgets/app_circle_button.dart';
 
 class AppIntroductionScreen extends StatelessWidget {

@@ -7,12 +7,14 @@ class QuestionPaperController extends GetxController{
     getAllPapers();
     super.onReady();
   }
+
   Future<void> getAllPapers() async {
     List<String> imgName=[
       "biology",
       "chemistry",
       "physics",
       "maths",
+      "logo"
     ];
     try{
       for(var img in imgName){
@@ -23,9 +25,6 @@ class QuestionPaperController extends GetxController{
     }catch(e){
       print(e);
     }
-
-
-
   }
 
 }

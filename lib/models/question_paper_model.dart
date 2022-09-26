@@ -1,4 +1,4 @@
-class QustionPaperModel {
+class QuestionPaperModel {
   String id;
   String title;
   String? imageUrl;
@@ -6,7 +6,7 @@ class QustionPaperModel {
   int timeSeconds;
   List<Questions>? questions;
 
-  QustionPaperModel(
+  QuestionPaperModel(
       {required this.id,
       required this.title,
        this.imageUrl,
@@ -14,7 +14,7 @@ class QustionPaperModel {
       required this.timeSeconds,
       this.questions});
 
-  QustionPaperModel.fromJson(Map<String, dynamic> json) :
+  QuestionPaperModel.fromJson(Map<String, dynamic> json) :
     id = json['id'] as String,
     title = json['title'] as String,
     imageUrl = json['image_url'] as String,
@@ -28,8 +28,8 @@ class QustionPaperModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
+    data['id'] = id;
+    data['title'] = title;
     data['image_url'] = this.imageUrl;
     data['Description'] = this.description;
     data['time_seconds'] = this.timeSeconds;

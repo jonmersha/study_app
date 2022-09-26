@@ -5,9 +5,10 @@ import 'package:qaroo/controllers/theme_controller.dart';
 import 'package:get/get.dart';
 import 'routes/app_routes.dart';
 
-void main(){
+ main()  {
+   //Firebase.initializeApp();
   WidgetsFlutterBinding.ensureInitialized();
-  InitialBaindings().dependencies();
+  InitialBindings().dependencies();
   runApp(MayApp());
 }
 class MayApp extends StatelessWidget {
@@ -15,34 +16,47 @@ class MayApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return  FutureBuilder(
-      // Initialize FlutterFire
-      future: Firebase.initializeApp(),
-      builder: (context, snapshot) {
-        // // Check for errors
-        // if (snapshot.hasError) {
-        //   return SomethingWentWrong();
-        // }
-        //
-        // // Once complete, show your application
-        // if (snapshot.connectionState == ConnectionState.done) {
-        //   return MyAwesomeApp();
-        // }
-        //
-        // // Otherwise, show something whilst waiting for initialization to complete
-        // return Loading();
+    return  //FutureBuilder(
 
-        return  GetMaterialApp(
+      // future: Firebase.initializeApp(),
+      // builder: (context, snapshot) {
+      //   if(snapshot.hasError)
+      //     {
+      //       print(snapshot.error);
+      //       return ErroPage(snapthor:snapshot.error.toString());
+      //     }
+      //   else
+      GetMaterialApp(
           theme: Get.find<ThemeController>().lightTheme,
           getPages: AppRoutes.routes(),
         );
 
-      },
-    );;
+      //},
+    //);
 
 
 
     
+  }
+}
+
+class ErroPage extends StatelessWidget {
+   final String snapthor;
+  const ErroPage({required this.snapthor,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SafeArea(
+        child: Scaffold(
+          body: Container(
+            child: Text(snapthor),
+          ),
+        ),
+      ),
+    );
   }
 }
 

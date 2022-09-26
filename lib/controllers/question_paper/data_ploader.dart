@@ -18,22 +18,20 @@ class DataUploader extends GetxController{
 
 
  Future<void> uploadData() async{
-    //print("data is Uploading");
    loadingStatus.value=LoadingStatus.loading;
     final fireStore=FirebaseFirestore.instance;
-
-    final manifestContenet=await DefaultAssetBundle.of(Get.context!)
+    final manifestContent=await DefaultAssetBundle.of(Get.context!)
     .loadString("AssetManifest.json");
-  final Map<String,dynamic> manifestMap=json.decode(manifestContenet);
+  final Map<String,dynamic> manifestMap=json.decode(manifestContent);
   final papersInAsset=manifestMap.keys.where((path) => path.startsWith("assets/DB/papers") && path.contains(".json"))
   .toList();
   // print(papersInAsset);
-  List<QustionPaperModel> questionPaper=[];
+  List<QuestionPaperModel> questionPaper=[];
     var batch=fireStore.batch();
     for(var paper in papersInAsset){
-    String stringPaperContenet = await rootBundle.loadString(paper);
+    String stringPaperContent = await rootBundle.loadString(paper);
     questionPaper
-    .add(QustionPaperModel.fromJson(json.decode(stringPaperContenet)));
+    .add(QuestionPaperModel.fromJson(json.decode(stringPaperContent)));
 
   }
 
