@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:qaroo/bindings/initial_bindings.dart';
 import 'package:qaroo/controllers/theme_controller.dart';
@@ -16,27 +15,11 @@ class MayApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return  //FutureBuilder(
-
-      // future: Firebase.initializeApp(),
-      // builder: (context, snapshot) {
-      //   if(snapshot.hasError)
-      //     {
-      //       print(snapshot.error);
-      //       return ErroPage(snapthor:snapshot.error.toString());
-      //     }
-      //   else
+    return
       GetMaterialApp(
           theme: Get.find<ThemeController>().lightTheme,
           getPages: AppRoutes.routes(),
         );
-
-      //},
-    //);
-
-
-
-    
   }
 }
 
@@ -45,7 +28,6 @@ class ErroPage extends StatelessWidget {
   const ErroPage({required this.snapthor,
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

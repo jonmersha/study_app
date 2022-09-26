@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qaroo/controllers/question_paper_controller.dart';
@@ -15,11 +16,14 @@ class HomeScreen extends StatelessWidget {
                 child: SizedBox(
                   height: 200,
                   width: 200,
-                  child: FadeInImage(
-                    image: NetworkImage(
-                        _questionPaperController.allPaperImages[index]
+                  child: CachedNetworkImage(
+                    imageUrl: _questionPaperController.allPapers[index].imageUrl!,
+                    placeholder: (context, url)=>Container(
+                      alignment: Alignment.center,
+                      child: const CircularProgressIndicator(),
+
                     ),
-                    placeholder: AssetImage("assets/images/app_splash_logo.png"),
+                    errorWidget: (context,url,error)=>Image.asset("assets/images/app_splash_logo.png"),
                   ),
                 ),
               );
@@ -29,9 +33,15 @@ class HomeScreen extends StatelessWidget {
                 height: 10,
               );
             },
-            itemCount:_questionPaperController.allPaperImages.length
+            itemCount:_questionPaperController.allPapers.length
          ),
       ),
     );
   }
 }
+
+
+
+// image: NetworkImage(
+// _questionPaperController.allPaperImages[index]
+// ),
