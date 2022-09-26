@@ -39,6 +39,9 @@ class QuestionPaperController extends GetxController{
      // }
       //allPapers.assignAll(paperList);
      // print(allPapers.length);
+
+
+
     }catch(e){
       print("Error " + e.toString());
     }
